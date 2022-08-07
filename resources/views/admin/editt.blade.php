@@ -16,13 +16,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('admin_index')}}">Yazılar<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{route('adminIndex')}}">Yazılar<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin_articles')}}">Yazı Ekle</a>
+                <a class="nav-link" href="{{route('adminArticles')}}">Yazı Ekle</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('form_message')}}">Form</a>
+                <a class="nav-link" href="{{route('adminComments')}}">Yorumlar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('formMessage')}}">Form</a>
             </li>
         </ul>
     </div>
@@ -31,7 +34,7 @@
     <div class="card m-4">
         <div class="card-body">
             <h5 class="card-title">Düzenle</h5>
-            <form action="{{route('update_form',$veri->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('updateForm',$veri->id)}}" method="post" enctype="multipart/form-data">
                 @method('put')
                 @if(Session::has('success'))
                     <div class="alert alert-success">{{Session::get('success')}}</div>
@@ -56,7 +59,6 @@
                               min="10" required name="text">{{$veri->message}}</textarea>
                 </div>
                 <button class="btn btn-block btn-primary" type="submit">Formu Güncelle</button>
-                {{$veri}}
             </form>
         </div>
     </div>

@@ -12,26 +12,23 @@ use Illuminate\Support\Str;
 class MainController extends Controller
 {
     public function index(){
-        $topics=Articles::all();
-        $comments=Comments::all();
-
+        $topics = Articles::all();
+        $comments = Comments::all();
+        $data = [];
         foreach ($topics as $item)
             $data[]=array(
-                'id'=>$item->id,
-                'slug'=>$item->slug,
-                'title'=>$item->title,
-                'short_writing'=>$item->short_writing,
-                'text'=>Str::words($item->text, 3,'....'),
+                'id' => $item->id,
+                'slug' => $item->slug,
+                'title' => $item->title,
+                'short_writing' => $item->short_writing,
+                'text' => Str::words($item->text, 3,'....'),
             );
-        if (@$data){
+        if ($data){
             return view('index', ['topics' => $data,'comments'=>$comments]);
-        }{
+        }
             echo "Şuan da içerik yok,admin panelinden veri ekleyin";
         }
-
-
-    }
-    public function form_save(Request $request){
+    public function formSave(Request $request){
         $form_save=new Form();
         $form_save->name=request()->name;
         $form_save->email=request()->email;
@@ -42,7 +39,7 @@ class MainController extends Controller
             return back()->with('error','Mesajınız Gönderilemedi');
           }
     }
-    public  function show($id){
+     public function show($id){
         $deneme = Articles::findOrFail($id);
         $topic[] = array(
             'title' => $deneme->title,

@@ -16,16 +16,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('admin_index')}}">Yazılar<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{route('adminIndex')}}">Yazılar<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin_articles')}}">Yazı Ekle</a>
+                <a class="nav-link" href="{{route('adminArticles')}}">Yazı Ekle</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin_comments')}}">Yorumlar</a>
+                <a class="nav-link" href="{{route('adminComments')}}">Yorumlar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('form_message')}}">Form</a>
+                <a class="nav-link" href="{{route('formMessage')}}">Form</a>
             </li>
         </ul>
     </div>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Yorum</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Yorum" cols="60" rows="10" name="comments" maxlength="20"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Yorum" cols="60" rows="10" name="comments" maxlength="120"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="writer">Ad Soyad</label>

@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('comments');
-            $table->string('title');
+            $table->string('name','70');
+            $table->string('comments','300');
+            $table->string('title','70');
             $table->string('image');
             $table->timestamps();
         });
