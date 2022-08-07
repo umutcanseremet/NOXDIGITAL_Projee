@@ -22,7 +22,10 @@
                 <a class="nav-link" href="{{route('adminArticles')}}">Yazı Ekle</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('adminComments')}}">Yorumlar</a>
+                <a class="nav-link" href="{{route('adminComments')}}">Yorum Ekle</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('commentData')}}">Yorumlar</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('formMessage')}}">Form</a>

@@ -22,7 +22,10 @@
                 <a class="nav-link" href="{{route('adminArticles')}}">Yazı Ekle</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('adminComments')}}">Yorumlar</a>
+                <a class="nav-link" href="{{route('adminComments')}}">Yorum Ekle</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('commentData')}}">Yorumlar</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('formMessage')}}">Form</a>
@@ -49,7 +52,7 @@
                 </div>
                 <div class="form-group">
                     <label for="name">Yorum Başlığı</label>
-                    <input type="text" class="form-control" placeholder="Yorum Başlığı" name="title" required>
+                    <input type="text" class="form-control" placeholder="Yorum Başlığı" name="email" required>
                    @error('name'){{$message}}@endif</span>
                 </div>
                 <div class="form-group">

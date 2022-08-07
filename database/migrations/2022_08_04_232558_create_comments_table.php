@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name','70');
             $table->string('comments','300');
-            $table->string('title','70');
+            $table->string('email','70');
             $table->string('image');
             $table->timestamps();
         });

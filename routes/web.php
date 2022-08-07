@@ -31,6 +31,7 @@ Route::prefix('/admin')
         Route::post('/articles','createArticle')->name('admin_articles_save');
         Route::get('/comments','adminComments')->name('adminComments');
         Route::post('/comments','adminCommentsSaveForm')->name('admin_comments_save');
+        Route::get('comment','commentData')->name('commentData');
         Route::delete('/delete/{id}','destroy')->name('delete');
         Route::get('/edit/{data}','edit')->name('edit');
         Route::put('/edit/{id}','update')->name('update');
@@ -38,6 +39,11 @@ Route::prefix('/admin')
         Route::delete('/delete_form/{id}','formDestroy')->name('formDelete');
         Route::get('/editt/{id}','editForm')->name('editForm');
         Route::put('/editt/{id}','updateForm')->name('updateForm');
+        Route::get('comment','commentData')->name('commentData');
+        Route::delete('/deleteComment/{id}','deleteComment')->name('deleteComment');
+
+        Route::get('/edit/message/{data}','editComment')->name('editComment');
+        Route::put('/edit/message/{id}','updateFormEdit')->name('updateFormEdit');
     });
 
 

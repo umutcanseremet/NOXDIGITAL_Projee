@@ -40,26 +40,28 @@
     <tr>
         <th scope="col">Id</th>
         <th scope="col">Ad</th>
-        <th scope="col">E-mail</th>
-        <th scope="col">Mesaj</th>
+        <th scope="col">Yorum</th>
+        <th scope="col">Başlık</th>
+        <th scope="col">Resim</th>
         <th scope="col">İşlem1</th>
         <th scope="col">İşlem2</th>
     </tr>
 
     </thead>
-    @foreach($form as $value)
+    @foreach($data as $value)
         <tbody>
         <tr>
-            <th scope="row">{{$value->id}}</th>
-            <td>{{$value->name}}</td>
-            <td>{{$value->email}}</td>
-            <td>{{$value->message}}</td>
-            <form onsubmit="return confirm('Silmek istediğinize emin misiniz?');" class="px-3" method="post" action="{{route('formDelete',$value->id)}}">
+            <th scope="row">{{$value['id']}}</th>
+            <td>{{$value['name']}}</td>
+            <td>{{$value['comments']}}</td>
+            <td>{{$value['title']}}</td>
+            <td><img width="100" height="100" src="{{$value['image']}}"></td>
+            <form class="px-3" onsubmit="return confirm('Silmek istediğinize emin misiniz?');" method="post" action="{{route('deleteComment',$value['id'])}}">
                 @method('delete')
                 @csrf
                 <td><button type="submit" class="btn btn-danger">Sil</button></td>
             </form>
-            <td><a href="{{route('editForm',$value['id'])}}">
+            <td><a href="{{route('editComment',$value['id'])}}">
                     <button class="btn btn-success">Düzenle</button>
                 </a></td>
         </tr>
@@ -68,4 +70,3 @@
 </table>
 </body>
 </html>
-

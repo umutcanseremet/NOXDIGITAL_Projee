@@ -33,39 +33,6 @@
         </ul>
     </div>
 </nav>
-<table class="table">
-
-
-    <thead>
-    <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Ad</th>
-        <th scope="col">E-mail</th>
-        <th scope="col">Mesaj</th>
-        <th scope="col">İşlem1</th>
-        <th scope="col">İşlem2</th>
-    </tr>
-
-    </thead>
-    @foreach($form as $value)
-        <tbody>
-        <tr>
-            <th scope="row">{{$value->id}}</th>
-            <td>{{$value->name}}</td>
-            <td>{{$value->email}}</td>
-            <td>{{$value->message}}</td>
-            <form onsubmit="return confirm('Silmek istediğinize emin misiniz?');" class="px-3" method="post" action="{{route('formDelete',$value->id)}}">
-                @method('delete')
-                @csrf
-                <td><button type="submit" class="btn btn-danger">Sil</button></td>
-            </form>
-            <td><a href="{{route('editForm',$value['id'])}}">
-                    <button class="btn btn-success">Düzenle</button>
-                </a></td>
-        </tr>
-        @endforeach
-        </tbody>
-</table>
 </body>
 </html>
 

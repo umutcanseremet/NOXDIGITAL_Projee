@@ -25,6 +25,9 @@
                 <a class="nav-link" href="{{route('adminComments')}}">Yorum Ekle</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{route('commentData')}}">Yorumlar</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('formMessage')}}">Form</a>
             </li>
         </ul>
@@ -34,7 +37,7 @@
     <div class="card m-4">
         <div class="card-body">
             <h5 class="card-title">Düzenle</h5>
-            <form action="{{route('updateForm',$veri->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('updateFormEdit',$data->id)}}" method="post" enctype="multipart/form-data">
                 @method('put')
                 @if(Session::has('success'))
                     <div class="alert alert-success">{{Session::get('success')}}</div>
@@ -46,17 +49,24 @@
                 <div class="form-group my-4">
                     <label for="name">Ad</label>
                     <input type="text" class="form-control" placeholder="Ad Soyad" name="name" min="5"
-                           required value="{{$veri->name}}">
+                           required value="{{$data->name}}">
                 </div>
                 <div class="form-group my-4">
                     <label for="writer">Email</label>
-                    <input type="text" class="form-control" placeholder="Yazar İsmini Giriniz" name="email" min="5"
-                           required value="{{$veri->email}}">
+                    <input type="text" class="form-control" placeholder="E-mail Giriniz" name="email" min="5"
+                           required value="{{$data->email}}">
                 </div>
                 <div class="form-group my-4">
-                    <label for="exampleFormControlTextarea1">Yazı</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" cols="40" rows="10" name="message"
-                              min="10" required name="text">{{$veri->message}}</textarea>
+                    <label for="exampleFormControlTextarea1">Mesaj</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" cols="40" rows="10" name="comments"
+                              min="10" required name="text">{{$data->comments}}</textarea>
+                </div>
+                <div class="my-4">
+                    <label for="formFile" class="form-label">Resim Seçin</label>
+                    <input class="form-control" name="image" type="file" id="formFile" accept="image/*">
+                    <br>
+                    <img class="border border-1 border-black p-2 m-1" width="100" height="100"
+                         src="{{ asset($data->image) }}">
                 </div>
                 <button class="btn btn-block btn-primary" type="submit">Formu Güncelle</button>
             </form>

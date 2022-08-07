@@ -19,10 +19,13 @@
                 <a class="nav-link" href="{{route('adminIndex')}}">Yazılar<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin_articles')}}">Yazı Ekle</a>
+                <a class="nav-link" href="{{route('adminArticles')}}">Yazı Ekle</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Form</a>
+                <a class="nav-link" href="{{route('adminComments')}}">Yorum Ekle</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('formMessage')}}">Form</a>
             </li>
         </ul>
     </div>

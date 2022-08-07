@@ -73,7 +73,7 @@ class AdminController extends Controller
         $comments = new Comments();
         $comments->name = $req->name;
         $comments->comments = $req->comments;
-        $comments->title = $req->title;
+        $comments->email = $req->email;
 
         $imageName = time().'.'.$req->image->extension();
         $comments->image = $req->image->move('images', $imageName);
@@ -116,4 +116,45 @@ class AdminController extends Controller
 
 
     }
+    public function commentData(){
+        $comment=Comments::all();
+        foreach ($comment as $list) {
+            $data[] = array(
+                'id' => $list->id,
+                'name' => $list->name,
+                'comments' => $list->comments,
+                'title' => $list->title,
+                'image' => asset($list->image),
+            );
+        }
+        return view('admin.comment',['data'=>$data]);
+    }
+    public function deleteComment(Comments $id)
+    {
+        $id->delete();
+        return back()->with('success', 'Yazı Başarıyla Silindi 🙂');
+    }
+    public function editComment(Comments $data)
+    {
+        $commentData = Form::find($data->id);
+        return view('admin.edit/message', compact(['data','commentData']));
+    }
+    public function updateFormEdit(Request $request, $id)
+    {
+
+        $post = Comments::findOrFail($id);
+
+        $post->name = $request->name;
+        $post->email = $request->email;
+        $post->comments = $request->comments;
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            $post->image = $request->image->move('images', $imageName);
+        }
+
+        $post->save();
+
+        return back()->with('success', 'Güncellendi 🙂');
+    }
 }
+//q
